@@ -1,0 +1,12 @@
+json_locale_data = {
+    "messages" : {
+        // po header fields
+        "" : {
+            "plural-forms" : "nplurals=2; plural=(n != 1);",
+            "lang" : "es",
+            },
+        // all the msgid strings and translations
+        'msgid' : [null, 'msgstr'],
+        'Users' : [null, 'Usuarios'],
+    }
+}

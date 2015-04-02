@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>GettextJavaScript</title>
+        <script type="text/javascript" src="Gettext.js"></script>
+        <script type="text/javascript">
+            function fLang() {
+                var langBrowser = '';
+                // Search the language according to the browser
+                if (navigator.languages==undefined) {
+                    if (navigator.language==undefined) {
+                        // Internet Explorer Compatibility
+                        langBrowser= navigator.userLanguage.slice(0,2);
+                    } else {
+                        // Old navigator compatibility
+                        langBrowser= navigator.language.slice(0,2);
+                    }
+                } else { 
+                    // Recent navigators
+                    langBrowser= navigator.languages[0].slice(0,2);                                
+                }
+                return langBrowser;
+            }
+            var langNav = fLang();
+            switch(langNav){
+                case 'fr':
+                    document.write("<link rel='gettext' type='application/x-po' href='messages.po'>");
+                    break;
+                case 'es':
+                    document.write("<link rel='gettext' type='application/json' href='es.json'>");
+                    break;
+                default: break;
+            }
+            var gt = new Gettext({ domain : 'messages'});
+                alert(gt.gettext("Users"));
+        </script>
+    </head>
+    <body>
+        <h1>Example Gettext and JavaScript :D</h1>
+        <p>This example translate the string "Users" in two languages differents, if you change the language of your browser and reload the page you can view the changes. The languages in this example: </p>
+        <ol>
+            <li>Spanish</li>
+            <li>French</li>
+            <li>English (default)</li>
+        </ol>
+    </body>
+</html>
